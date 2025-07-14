@@ -10,7 +10,10 @@ dependencies:
   speech_to_text: ^7.1.0
   permission_handler: ^11.3.1
   http: ^0.13.6
+  flutter_dotenv: ^5.1.0
   cupertino_icons: ^1.0.8
+  flutter_tts: ^4.0.2
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
