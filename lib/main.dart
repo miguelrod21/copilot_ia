@@ -4,9 +4,11 @@ import 'package:flutter_tts/flutter_tts.dart';
 import 'package:http/http.dart' as http;
 import 'package:permission_handler/permission_handler.dart';
 import 'package:speech_to_text/speech_to_text.dart' as stt;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load(fileName: '.env'); // Carga el .env de la raíz
   runApp(const MyApp());
 }
 
@@ -36,8 +38,10 @@ class VoiceHomePage extends StatefulWidget {
 }
 
 Future<String> _sendToChatGPT(String prompt) async {
-  final openAiKey =
-      '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';
+  final openAiKey = dotenv.env['OPENAI_API_KEY'];
+  if (openAiKey == null) {
+    return 'Error: OPENAI_API_KEY no encontrada en .env';
+  }
   const endpoint = 'https://api.openai.com/v1/chat/completions';
 
   final response = await http.post(
