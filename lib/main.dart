@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import '/src/screens/voice_home_page.dart';
+import 'src/ui/voice_home_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
